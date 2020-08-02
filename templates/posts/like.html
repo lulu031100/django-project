@@ -1,0 +1,6 @@
+{% load custom_filter %}
+{{ post|is_like:user }}
+{{ like_list|get_likes:post.id }}
+<!-- ここから新規追加 -->
+<br>
+{{ comment_list|get_comment_list:post.id }}

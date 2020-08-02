@@ -1,0 +1,116 @@
+{% extends "base/app.html" %}
+
+{% load custom_filter %}
+
+{% block contents %}
+<!-- timeline section-->
+<section>
+    <!-- 投稿がなかったら投稿を促す -->
+    {% if post_list %}
+    {% for post in post_list %}
+    <div class="row p-3 text-lefti">
+        <div class="col-10 offset-1">
+            <div class="card">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <a href="{% url 'accounts:userDetail' post.author%}" class="text-dark">
+                        <img src="{{ post.author.icon.url }}" class="timeline-icon" style="width:30px">
+                            {{post.author.username }}
+                        </a>
+                    </li>
+                </ul>
+                <img src="{{post.picture.url}}" class="card-img" style="width:500px" />
+                <div class="card-body">
+                    <div class="like_list_{{post.id}}">
+                        <!-- ここにお気に入り機能を実装していく -->
+                        {{ post|is_like:user }}
+                        {{ like_list|get_likes:post.id }}
+                        <!-- ここから新規追加 -->
+                        </br>
+                        {{ comment_list|get_comment_list:post.id }}
+                        <!-- 新規追加ここまで -->
+
+                    </div>
+                    <div class="card-hedder">
+
+                        <div><span class="mr-2">@{{ post.author.username }}</span>{{ post.text }}</div>
+
+                    </div>
+                    <div class="pt-2">
+                        <small>
+                            投稿時間{{ post.created_at|date:'Y-m-d H:i' }}
+                        </small>
+                    </div>
+
+                </div>
+                <!-- ここから新規追加 -->
+                <div class="card-footer">
+                    コメント投稿
+                    <form class="comment" id="{{post.id}}">
+                        {% csrf_token %}
+                        <input class="form-control col-12" name="comment" type="text" class="comment">
+
+                    </form>
+                </div>
+                <!-- 新規追加ここまで -->
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div "row p-5">
+        <div class="col-6 offset-3 text-center">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <p class="lead"><a href="{% url 'posts:new' %}">投稿</a>して他のユーザーに見つけてもらおう</p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+</section>
+
+
+<!-- ここにJSスクリプトを書いていく -->
+<script>
+    $(document)
+        .on('click', '.like', function () {
+            var id = $(this).attr("id");
+            do_like(id)
+        }) // このセミコロンを削除
+
+        // ここから新規追加
+        .on('submit', 'form', function () {
+            do_comment($(this))
+            $(this).find(":text").val("")
+            return false
+        });
+        // 新規追加ここまで
+
+
+    function do_like(post_id) {
+        $.ajax({
+                url: `./${post_id}/like`,
+                type: 'get'
+            })
+            .done((data) => {
+                $('.like_list_' + post_id).html(data);
+            })
+    }
+
+    // 新規追加
+    function do_comment(form) {
+        console.log(form.serialize())
+        $.ajax({
+                url: `./${form.attr("id")}/comment/`,
+                type: 'post',
+                data: form.serialize(),
+
+            })
+            .done((data) => {
+                $('.like_list_' + form.attr("id")).html(data);
+            })
+    }
+    // 新規追加ここまで
+</script>
+{% endblock contents %}

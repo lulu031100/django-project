@@ -1,0 +1,27 @@
+{% extends "base/app.html" %}
+{% block contents %}
+<div class="container">
+    <!-- アカウント情報 -->
+    <div class="row">
+        <div class="col-md-2 col-md-offset-4">
+            <img class="col-md-12 rounded img-responsive" src=" {{user.icon.url}}" />
+
+
+        </div>
+        <div class="col-md-9">
+            <h2>
+                {{user.username}}
+            </h2>
+            <!-- ここから追加 -->
+            {% if user.id == login_user.id %}
+            <a href="{% url 'accounts:icon_edit' %}">
+                <button class="btn btn-primary">
+                    <i class="fas fa-cog"></i> アイコン編集する
+                </button>
+            </a>
+            {% endif %}
+            <!-- 追加ここまで -->
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base/app.html' %}
+{% block contents %}
+<div class="container">
+    <div class=" card card-primary">
+        <div class="card-heading">
+            登録フォーム
+        </div>
+        <div class="card-body">
+            <form action="{% url 'accounts:icon_edit' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">{{ field.label_tag }}</label>
+                    {{ field }}
+                    {{ field.errors }}
+                </div>
+                {% endfor %}
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">更新</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
