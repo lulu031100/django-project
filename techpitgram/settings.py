@@ -138,3 +138,14 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = 'login'
 # これ下を書くとwidgetのテンプレートも通常のテンプレと同じ順序で検索してくれる
 FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
+#メールに送るかわりにコンソールに表示してくれる（テスト用）
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#実際にメールを送る
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# メールサーバーへの接続設定
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'lulu031100@gmail.com'
+EMAIL_HOST_PASSWORD = 'cvu255+Google'
+EMAIL_USE_TLS = True

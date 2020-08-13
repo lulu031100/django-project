@@ -1,12 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
 from django.views.generic import ListView
 from django.urls import reverse_lazy
 from django.views import View   # 追加
+from django.http import HttpResponse
 
 from .forms import PostForm
 from .models import Post, Like, Comment
-
 
 # 投稿画面
 class New(CreateView):

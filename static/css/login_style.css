@@ -2,19 +2,24 @@
 /* login 用 */
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
-html,body{
-background-image:url('../img/580757.jpg');
+html, body{
+height: 1000px;
+background-image: url("/static/img/580757.jpg");
+font-family: 'Numans', sans-serif;
+align-content: center;
 background-size: cover;
 background-repeat: no-repeat;
-height: 100%;
-font-family: 'Numans', sans-serif;
+
 }
 
 .container{
 height: 100%;
-align-content: center;
+font-family: 'Numans', sans-serif;
 }
-
+.bg-opacity {
+background: rgba(0,0,0,.3);
+height: 100%;
+}
 .card{
 height: 370px;
 margin-top: auto;

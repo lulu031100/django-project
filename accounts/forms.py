@@ -11,7 +11,7 @@ class SignUpForm(UserCreationForm):
         # 使うモデルの指定です。定義したものを使います。
         model = User
         # ここではフォームで入力するフィールドを指定しています。
-        fields = ("username", "password1", "password2", "icon")
+        fields = ("username", "email", "password1", "password2", "icon")
 
     # 入力したパスワードの検証(バリデーション)を行っています
     def clean_password(self):

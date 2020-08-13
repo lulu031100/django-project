@@ -1,0 +1,38 @@
+.bg-mytheme {
+  background-color: #ff69b4 !important;
+}
+
+a.bg-mytheme:hover, a.bg-mytheme:focus,
+button.bg-mytheme:hover,
+button.bg-mytheme:focus {
+  background-color: #ff1493 !important;
+}
+/* 通常のボタン色 */
+.btn-pink,
+.btn-pink.disabled, .btn-pink:disabled {
+  color: #fff;
+  background-color: #ff7bff;
+  border-color: #ff7bff;
+}
+
+/* focusされた時の枠線の色 */
+.btn-pink:focus, .btn-pink.focus,
+.btn-pink:not(:disabled):not(.disabled):active:focus, .btn-pink:not(:disabled):not(.disabled).active:focus,
+.show > .btn-pink.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(200, 123, 255, 0.5);
+}
+
+/* hover時（マウスカーソルを重ねた時）の色（通常より濃いor暗めの色を指定） */
+.btn-pink:hover {
+  color: #fff;
+  background-color: #ff69d9;
+  border-color: #ff62cc;
+}
+
+/* active時の色（hover時と同等かさらに濃いor暗めの色を指定） */
+.btn-pink:not(:disabled):not(.disabled):active, .btn-pink:not(:disabled):not(.disabled).active,
+.show > .btn-pink.dropdown-toggle {
+  color: #fff;
+  background-color: #ee62cc;
+  border-color: #ee5cbf;
+}

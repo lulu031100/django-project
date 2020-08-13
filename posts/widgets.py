@@ -6,7 +6,7 @@ class FileInputWithPreview(forms.ClearableFileInput):
     template_name = 'posts/widgets/file_input_with_preview.html'
 
     class Media:
-        js = ['preview.js']
+        js = ['js/preview.js']
 
     def __init__(self, attrs=None, include_preview=True):
         super().__init__(attrs)
