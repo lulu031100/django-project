@@ -81,8 +81,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'techpitgram',
-        'USER': 'root',
-        'PASSWORD': 'cvu255Mysql',
+        'USER': 'lucyuser',
+        'PASSWORD': 'cvu255+Mysql',
         'HOST': 'localhost',
         'PORT': '3306',
     }
