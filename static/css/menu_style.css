@@ -1,0 +1,56 @@
+.w-400px {
+    width: 400px !important;
+  }
+/* 通常のボタン色 */
+.btn-pink,
+.btn-pink.disabled, .btn-pink:disabled {
+  color: #FFFFFF;
+  background-color: #E07581;
+  border-color: #E07581;
+  width: 400px;
+  height:80px;
+  margin: 2px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+/* focusされた時の枠線の色 */
+.btn-pink:focus, .btn-pink.focus,
+.btn-pink:not(:disabled):not(.disabled):active:focus, .btn-pink:not(:disabled):not(.disabled).active:focus,
+.show > .btn-pink.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
+/* hover時（マウスカーソルを重ねた時）の色（通常より濃いor暗めの色を指定）*/
+.btn-pink:hover {
+  color: #fff;
+  background-color: #B62636;
+  border-color: #cf6f7a;
+}
+
+/* active時の色（hover時と同等かさらに濃いor暗めの色を指定） */
+.btn-pink:not(:disabled):not(.disabled):active, .btn-pink:not(:disabled):not(.disabled).active,
+.show > .btn-pink.dropdown-toggle {
+  color: #fff;
+  background-color: #B62636;
+  border-color: #B62636;
+}
+/* Made with love by Mutiullah Samim*/
+/* login 用 */
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html,body{
+background-image:url('../img/580757.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
+}
+
+.container{
+height: 100%;
+align-content: center;
+padding-top: 100px;
+}

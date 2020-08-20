@@ -83,3 +83,6 @@ class AddComment(View):
             'comment_list': comment_list,
             'post': post
         })
+def menu(request):
+    template_name = 'posts/menu.html'
+    return render(request,'posts/menu.html',{})

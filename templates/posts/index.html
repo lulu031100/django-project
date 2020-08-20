@@ -43,16 +43,6 @@
                     </div>
 
                 </div>
-                <!-- ここから新規追加 -->
-                <div class="card-footer">
-                    コメント投稿
-                    <form class="comment" id="{{post.id}}">
-                        {% csrf_token %}
-                        <input class="form-control col-12" name="comment" type="text" class="comment">
-
-                    </form>
-                </div>
-                <!-- 新規追加ここまで -->
 
             </div>
         </div>
@@ -79,14 +69,6 @@
             do_like(id)
         }) // このセミコロンを削除
 
-        // ここから新規追加
-        .on('submit', 'form', function () {
-            do_comment($(this))
-            $(this).find(":text").val("")
-            return false
-        });
-        // 新規追加ここまで
-
 
     function do_like(post_id) {
         $.ajax({
@@ -98,19 +80,6 @@
             })
     }
 
-    // 新規追加
-    function do_comment(form) {
-        console.log(form.serialize())
-        $.ajax({
-                url: `./${form.attr("id")}/comment/`,
-                type: 'post',
-                data: form.serialize(),
 
-            })
-            .done((data) => {
-                $('.like_list_' + form.attr("id")).html(data);
-            })
-    }
-    // 新規追加ここまで
 </script>
 {% endblock contents %}
