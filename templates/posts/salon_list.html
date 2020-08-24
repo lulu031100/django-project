@@ -8,7 +8,7 @@
             <th>id</th>
             <th>サロン名</th>
             <th>電話番号</th>
-<!--            <th>&#45;&#45;</th>-->
+            <th>--</th>
         </tr>
         </thead>
         <tbody>
@@ -17,8 +17,7 @@
             <th scope="row">{{ salon.id }}</th>
             <td>{{ salon.name }}</td>
             <td>{{ salon.tel }}</td>
-<!--            <td><a href="#">-->
-<!--                編集画面へ</a></td>-->
+            <td><a href="{% url 'posts:salon_update' salon.id %}">編集画面へ</a></td>
         </tr>
         {% endfor %}
          </tbody>
