@@ -1,35 +1,21 @@
 {% extends "base/app.html" %}
 {% block contents %}
 <div class="center-block container col-8 offset-2">
-    <h2>サロン登録</h2>
+    <h2>美容師登録</h2>
     <form action="" method="POST" class="post-form" enctype="multipart/form-data">
         {% csrf_token %}
        <table class="table">
+       <tr>
+            <td>美容院</td>
+            <td> {{ form.salon }}</td>
+        </tr>
         <tr>
-            <td>サロン名</td>
+            <td>美容師名</td>
             <td> {{ form.name }}</td>
         </tr>
+        <tr>
             <td>電話</td>
             <td> {{ form.tel }}</td>
-        <tr>
-            <td>〒番号</td>
-            <td> {{ form.zipcode}}</td>
-        </tr>
-        <tr>
-            <td>住所１</td>
-            <td> {{ form.address1}}</td>
-        </tr>
-        <tr>
-            <td>住所２</td>
-            <td> {{ form.address2}}</td>
-        </tr>
-          <tr>
-            <td>住所３</td>
-            <td> {{ form.address3}}</td>
-        </tr>
-        <tr>
-            <td>URL</td>
-            <td> {{ form.salon_url}}</td>
         </tr>
        </table>
     <div class="btn-group">

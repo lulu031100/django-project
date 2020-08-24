@@ -1,0 +1,26 @@
+{% extends "base/app.html" %}
+{% block contents %}
+<div class="container">
+    <p><div class="pc-title">美容師一覧 <span class="mgr-10"><a href="{% url 'posts:adviser_add' %}"></div><div class="plus-link"><i class="fas fa-plus fa-2x"></i></a></p></span></div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>氏名</th>
+            <th>電話番号</th>
+            <th>--</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for adviser in object_list %}
+        <tr class="table-light">
+            <th scope="row">{{ adviser.id }}</th>
+            <td>{{ adviser.name }}</td>
+            <td>{{ adviser.tel }}</td>
+            <td><a href="{% url 'posts:adviser_update' adviser.id %}">編集画面へ</a></td>
+        </tr>
+        {% endfor %}
+         </tbody>
+    </table>
+</div>
+{% endblock contents %}

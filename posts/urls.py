@@ -14,4 +14,7 @@ urlpatterns = [
     path('salonadd/', views.SalonAddView.as_view(), name='salon_add'),  # http://127.0.0.1:8000/salon_add
     path('salonlist/', views.SalonListView.as_view(), name='salonlist'),
     path('<int:pk>/salonupdate', views.SalonUpdateView.as_view(), name='salon_update'),
+    path('adviseradd/', views.AdviserAddView.as_view(), name='adviser_add'),
+    path('adviserlist/', views.AdviserListView.as_view(), name='adviserlist'),
+    path('<int:pk>/adviserupdate', views.AdviserUpdateView.as_view(), name='adviser_update'),
 ]

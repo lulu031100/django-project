@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.views import View   # 追加
 from django.http import HttpResponse
 
-from .forms import PostForm, SalonAddForm
+from .forms import PostForm, SalonAddForm, AdviserAddForm
 
 from .models import Post, Like, Comment, Salon, Adviser, Useradviser
 
@@ -97,9 +97,6 @@ class SalonAddView(CreateView):
 class SalonListView(ListView):
     model = Salon
     queryset = Salon.objects.order_by('id')
-
-
-
 class SalonUpdateView(UpdateView):
     model = Salon
     template_name = 'posts/salon_update.html'
@@ -108,7 +105,25 @@ class SalonUpdateView(UpdateView):
     def get_success_url(self):
         return reverse_lazy('posts:salonlist')
 
+class AdviserAddView(CreateView):
+    template_name = 'posts/adviser_add.html'
+        # 使うformクラスの指定
+    form_class = AdviserAddForm
+        # 成功時に飛ぶURLの指定
+    success_url = reverse_lazy('posts:adviserlist')
+
+class AdviserListView(ListView):
+    model = Adviser
+    queryset = Adviser.objects.order_by('id')
+
+class AdviserUpdateView(UpdateView):
+    model = Adviser
+    template_name = 'posts/adviser_update.html'
+    form_class = AdviserAddForm
+
+    def get_success_url(self):
+        return reverse_lazy('posts:adviserlist')
 
     def get_form(self):
-        form = super(SalonUpdateView, self).get_form()
+        form = super(AdviserUpdateView, self).get_form()
         return form

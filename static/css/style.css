@@ -1,6 +1,12 @@
 .w-400px {
     width: 400px !important;
   }
+.w-300px {
+    width: 300px !important;
+  }
+.mgr-10{
+    margin-right : 10px;
+}
 /* 通常のボタン色 */
 .btn-pink,
 .btn-pink.disabled, .btn-pink:disabled {
@@ -55,4 +61,13 @@ textarea#id_salon_url {
 main{
     background-color:#FFC0CB;
     height:900px;
+}
+.pc-title{
+    font-size:2rem!important;
+    text-align: left;
+    float: left;
+}
+.plus-link{
+    font-size:1.5rem!important;
+    text-align: right;
 }
