@@ -1,7 +1,7 @@
 {% extends "base/app.html" %}
 {% block contents %}
 <div class="center-block container col-8 offset-2">
-    <h2>新規投稿</h2>
+    <h2>写真登録</h2>
     <form id="postsnewform" action="{% url 'posts:new' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="form-group">

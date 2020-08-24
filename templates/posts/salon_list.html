@@ -1,0 +1,27 @@
+{% extends "base/app.html" %}
+{% block contents %}
+<div class="container">
+    <h2>サロン一覧</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>サロン名</th>
+            <th>電話番号</th>
+<!--            <th>&#45;&#45;</th>-->
+        </tr>
+        </thead>
+        <tbody>
+        {% for salon in object_list %}
+        <tr class="table-light">
+            <th scope="row">{{ salon.id }}</th>
+            <td>{{ salon.name }}</td>
+            <td>{{ salon.tel }}</td>
+<!--            <td><a href="#">-->
+<!--                編集画面へ</a></td>-->
+        </tr>
+        {% endfor %}
+         </tbody>
+    </table>
+</div>
+{% endblock contents %}

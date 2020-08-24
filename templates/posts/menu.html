@@ -4,7 +4,7 @@
 	<title>Menu</title>
     {% load static %}
    	<!--Bootsrap 4 CDN-->
-	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css" id="bootstrap-css">
+	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}" id="bootstrap-css">
 	<!--Custom styles-->
     <link rel="stylesheet" type="text/css" href="{% static 'css/menu_style.css' %}">
 <!------ Include the above in your HEAD tag ---------->
@@ -13,13 +13,15 @@
 </head>
 <body>
 	<div class="container">
-	<div class="d-flex flex-column justify-content-center ">
-	<button type="button" class="btn btn-pink w-400px">写真を撮る</button>
-	<button type="button" class="btn btn-pink w-400px">これまでの写真を見る</button>
-	<button type="button" class="btn btn-pink w-400px">お店の登録</button>
+	<!------ Include the above in your HEAD tag ---------->
+<!------ <div class="d-flex flex-column justify-content-center ">----->
+	<div class="col text-center">
+	<a href="{% url 'posts:new' %}"><button type="button" class="btn btn-pink w-400px">写真を撮る</button></a>
+	<a href="{% url 'posts:index' %}"><button type="button" class="btn btn-pink w-400px">これまでの写真を見る</button></a>
+	<a href="{% url 'posts:salonlist' %}"><button type="button" class="btn btn-pink w-400px">お店の登録</button></a>
 	<button type="button" class="btn btn-pink w-400px">担当者の登録</button>
 	<button type="button" class="btn btn-pink w-400px">My Profile</button>
-		</div>
+	</div>
 	</div>
 </body>
 </html>

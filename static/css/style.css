@@ -1,38 +1,58 @@
-.bg-mytheme {
-  background-color: #ff69b4 !important;
-}
-
-a.bg-mytheme:hover, a.bg-mytheme:focus,
-button.bg-mytheme:hover,
-button.bg-mytheme:focus {
-  background-color: #ff1493 !important;
-}
+.w-400px {
+    width: 400px !important;
+  }
 /* 通常のボタン色 */
 .btn-pink,
 .btn-pink.disabled, .btn-pink:disabled {
-  color: #fff;
-  background-color: #ff7bff;
-  border-color: #ff7bff;
+  color: #FFFFFF;
+  background-color: #E07581;
+  border-color: #E07581;
+  width: 400px;
+  height:80px;
+  margin: 2px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
 }
 
 /* focusされた時の枠線の色 */
 .btn-pink:focus, .btn-pink.focus,
 .btn-pink:not(:disabled):not(.disabled):active:focus, .btn-pink:not(:disabled):not(.disabled).active:focus,
 .show > .btn-pink.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(200, 123, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
 }
 
-/* hover時（マウスカーソルを重ねた時）の色（通常より濃いor暗めの色を指定） */
+/* hover時（マウスカーソルを重ねた時）の色（通常より濃いor暗めの色を指定）*/
 .btn-pink:hover {
   color: #fff;
-  background-color: #ff69d9;
-  border-color: #ff62cc;
+  background-color: #B62636;
+  border-color: #cf6f7a;
 }
 
 /* active時の色（hover時と同等かさらに濃いor暗めの色を指定） */
 .btn-pink:not(:disabled):not(.disabled):active, .btn-pink:not(:disabled):not(.disabled).active,
 .show > .btn-pink.dropdown-toggle {
   color: #fff;
-  background-color: #ee62cc;
-  border-color: #ee5cbf;
+  background-color: #B62636;
+  border-color: #B62636;
+}
+
+main {
+    backgroud-color:#FFC0CB!important;
+        }
+/* フォーム入力 */
+
+input#id_name {
+    width:300px!important;
+}
+input#id_address1, input#id_address2, input#id_address3 {
+    width:300px!important;
+}
+textarea#id_salon_url {
+    height: 32px!important;
+}
+main{
+    background-color:#FFC0CB;
+    height:900px;
 }

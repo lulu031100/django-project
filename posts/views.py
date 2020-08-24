@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect
-from django.views.generic.edit import CreateView
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.urls import reverse_lazy
 from django.views import View   # 追加
 from django.http import HttpResponse
 
-from .forms import PostForm
-from .models import Post, Like, Comment
+from .forms import PostForm, SalonAddForm
+
+from .models import Post, Like, Comment, Salon, Adviser, Useradviser
 
 # 投稿画面
 class New(CreateView):
@@ -86,3 +86,29 @@ class AddComment(View):
 def menu(request):
     template_name = 'posts/menu.html'
     return render(request,'posts/menu.html',{})
+
+class SalonAddView(CreateView):
+    template_name = 'posts/salon_add.html'
+    # 使うformクラスの指定
+    form_class = SalonAddForm
+    # 成功時に飛ぶURLの指定
+    success_url = reverse_lazy('posts:salonlist')
+
+class SalonListView(ListView):
+    model = Salon
+    queryset = Salon.objects.order_by('id')
+
+
+
+class SalonUpdateView(UpdateView):
+    model = Salon
+    template_name = 'posts/salon_update.html'
+    form_class = SalonAddForm
+
+    def get_success_url(self):
+        return reverse_lazy('posts:salonlist')
+
+
+    def get_form(self):
+        form = super(SalonUpdateView, self).get_form()
+        return form

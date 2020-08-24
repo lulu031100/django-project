@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>TechpitGram</title>
+    <title>MEM-AB</title>
     {% load static %}
     <!-- 必要なライブラリインポート -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
@@ -23,11 +22,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 </head>
-
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color:pink">
-            <a class="navbar-brand" href="/">MEM-AB</a>
+            <a class="navbar-brand" href="{% url 'posts:menu' %}">MEM-AB</a>
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav flex-row ml-md-auto">
                 <!-- ここから追加 -->

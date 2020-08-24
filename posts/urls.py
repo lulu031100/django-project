@@ -11,4 +11,7 @@ urlpatterns = [
     path('menu/', login_required(views.menu), name='menu'),
     path('<postId>/like/', login_required(views.Likes.as_view()), name='like'),
     path('<postId>/comment/', login_required(views.AddComment.as_view()), name='comment'),  # 追加
+    path('salonadd/', views.SalonAddView.as_view(), name='salon_add'),  # http://127.0.0.1:8000/salon_add
+    path('salonlist/', views.SalonListView.as_view(), name='salonlist'),
+    path('<int:pk>/salonupdate', views.SalonUpdateView.as_view(), name='salon_update'),
 ]
