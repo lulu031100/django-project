@@ -7,11 +7,12 @@ from .widgets import FileInputWithPreview
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ("picture", "text")
+        fields = ("picture", "picture2", "picture3", "text", "author", "adviser", "salon", "created_at")
         widgets = {
             'picture': FileInputWithPreview,
+            'picture2': FileInputWithPreview,
+            'picture3': FileInputWithPreview,
         }
-
 
 class SalonAddForm(forms.ModelForm):
     class Meta:

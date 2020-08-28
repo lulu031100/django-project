@@ -1,5 +1,6 @@
 from django.db import models
 from accounts.models import User
+from datetime import datetime
 
 
 # Create your models here.
@@ -13,11 +14,18 @@ class Post(models.Model):
         'posts.Adviser', on_delete=models.SET_NULL, null=True)
     #  画像を登録するためのカラム
     picture = models.ImageField(
-        upload_to="image/posts/", blank=False, null=False)
+        verbose_name='画像１', blank=True, upload_to="image/posts/",
+        default='image/default.jpg')
+    picture2 = models.ImageField(
+        verbose_name='画像２', blank=True, upload_to="image/posts/",
+        default='image/default.jpg')
+    picture3 = models.ImageField(
+        verbose_name='画像３', blank=True, upload_to="image/posts/",
+                             default='image/default.jpg')
     # 写真のコメントを追加するためのカラム
     text = models.TextField(blank=True)
     # 投稿日を持つためのカラム
-    created_at = models.DateTimeField(auto_now_add=True, blank=True)
+    created_at = models.DateTimeField(default=datetime.now, blank=True)
 # いいね機能のため
 
 class Like(models.Model):

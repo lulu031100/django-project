@@ -2,8 +2,8 @@
 {% block contents %}
 <div class="center-block container col-8 offset-2">
     <main>
-    <h2>写真登録</h2>
-    <form id="postsnewform" action="{% url 'posts:new' %}" method="POST" enctype="multipart/form-data">
+    <h2>写真修正</h2>
+    <form id="postsnewform" action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="form-group">
            <label for="text">ユーザー</label>
@@ -63,7 +63,7 @@
             {{ form.created_at}}
         </div>
         <div class="form-group">
-            <input type="submit" value="投稿" fileclass="btn btn-primary form-control">
+            <input type="submit" value="送信" fileclass="btn btn-primary form-control">
         </div>
         <div> {{form.media }} </div>
     </form>

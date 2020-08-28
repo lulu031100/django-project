@@ -1,3 +1,14 @@
+button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    appearance: none;
+}
+.w-500px {
+    width: 500px !important;
+  }
 .w-400px {
     width: 400px !important;
   }
@@ -37,18 +48,31 @@
 }
 
 /* active時の色（hover時と同等かさらに濃いor暗めの色を指定） */
-.btn-pink:not(:disabled):not(.disabled):active, .btn-pink:not(:disabled):not(.disabled).active,
+.btn-pink:not(:disabled):not(.disabled):active,
+.btn-pink:not(:disabled):not(.disabled).active,
 .show > .btn-pink.dropdown-toggle {
   color: #fff;
   background-color: #B62636;
   border-color: #B62636;
 }
-
-main {
-    backgroud-color:#FFC0CB!important;
-        }
+.img-style {
+display: block;
+margin-left: auto;
+margin-right: auto;
+width:400px;
+}
 /* フォーム入力 */
-
+html,body {
+ height: auto;
+}
+main{
+  background-color:#FFC0CB;
+  height: auto;
+}
+.container
+  background-color:#FFC0CB;
+  height: auto;
+}
 input#id_name {
     width:300px!important;
 }
@@ -58,10 +82,6 @@ input#id_address1, input#id_address2, input#id_address3 {
 textarea#id_salon_url {
     height: 32px!important;
 }
-main{
-    background-color:#FFC0CB;
-    height:900px;
-}
 .pc-title{
     font-size:2rem!important;
     text-align: left;
@@ -70,4 +90,17 @@ main{
 .plus-link{
     font-size:1.5rem!important;
     text-align: right;
+}
+/*ピンクの💛*/
+.pink_heart{color:#FF66CC;
+            font-size:28px;}
+.grey_heart{color:#666666;
+            font-size:28px;}
+
+button.like{
+    font-size:32px;
+    font-weight: bold;
+    color:#FF66CC;
+    padding: 1;
+    appearance: none;
 }

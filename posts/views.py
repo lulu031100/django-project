@@ -22,7 +22,19 @@ class New(CreateView):
         form.instance.author_id = self.request.user.id
         return super(New, self).form_valid(form)
 
+class PostUpdateView(UpdateView):
+    # 使うためテンプレートの指定
+    template_name = 'posts/post_update.html'
+    # 使うformクラスの指定
+    model = Post
+    form_class = PostForm
+    # 成功時に飛ぶURLの指定
+    success_url = reverse_lazy('posts:index')
 
+class PostDetailView(DetailView):
+    template_name = 'posts/post_detail.html'
+    model = Post
+    fields = ("picture", "picture2", "picture3", "text", "author", "adviser", "salon", "created_at")
 # 投稿一覧
 class Index(ListView):
     model = Post

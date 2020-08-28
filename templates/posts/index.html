@@ -6,21 +6,23 @@
 <!-- timeline section-->
 <section>
     <!-- 投稿がなかったら投稿を促す -->
+    <main>
     {% if post_list %}
     {% for post in post_list %}
     <div class="row p-3 text-lefti">
         <div class="col-10 offset-1">
-            <div class="card">
+            <div class="card" style="width: 700px;">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
                         <a href="{% url 'accounts:userDetail' post.author%}" class="text-dark">
                         <img src="{{ post.author.icon.url }}" class="timeline-icon" style="width:30px">
-                            {{post.author.username }}
-                        </a>
+                            {{post.author.username }}</a><small class="pl-5">投稿時間{{ post.created_at|date:'Y-m-d H:i' }}</small>
+
                     </li>
                 </ul>
-                <img src="{{post.picture.url}}" class="card-img" style="width:500px" />
+                <img src="{{post.picture.url}}" class="card-img img-style w-400px"/>
                 <div class="card-body">
+                    <div style="text-align"><a href="{% url 'posts:postdetail' post.id %}">詳細</a></div>
                     <div class="like_list_{{post.id}}">
                         <!-- ここにお気に入り機能を実装していく -->
                         {{ post|is_like:user }}
@@ -35,11 +37,6 @@
 
                         <div><span class="mr-2">@{{ post.author.username }}</span>{{ post.text }}</div>
 
-                    </div>
-                    <div class="pt-2">
-                        <small>
-                            投稿時間{{ post.created_at|date:'Y-m-d H:i' }}
-                        </small>
                     </div>
 
                 </div>
@@ -58,6 +55,7 @@
             </div>
         </div>
         {% endif %}
+  </main>
 </section>
 
 
