@@ -25,7 +25,8 @@
                         <small>
                             投稿時間{{ post.created_at|date:'Y-m-d H:i' }}
                         </small>
-                    </div>
+                     </div>
+                     <p class="text-right"><a href="{% url 'posts:postdelete' post.id %}"> 削除画面へ</a></p>
 
                 </div>
 

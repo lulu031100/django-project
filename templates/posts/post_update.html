@@ -62,8 +62,12 @@
               <label for="text">日付</label>
             {{ form.created_at}}
         </div>
-        <div class="form-group">
-            <input type="submit" value="送信" fileclass="btn btn-primary form-control">
+<!--        <div class="form-group">-->
+<!--            <input type="submit" value="送信" fileclass="btn btn-primary form-control">-->
+<!--        </div>-->
+         <div class="btn-group">
+            <span class="mgr-10"><input type="submit" value="投稿" class="btn btn-pink w-300px form-control"></span>
+            <input type="button" value="戻る" onClick="javascript:history.go(-1);" class="btn btn-pink mr-10 w-300px form-control">
         </div>
         <div> {{form.media }} </div>
     </form>

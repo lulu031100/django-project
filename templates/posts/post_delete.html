@@ -1,0 +1,47 @@
+{% extends "base/app.html" %}
+{% block contents %}
+<div class="center-block container col-8 offset-2">
+    <main>
+    <h2>写真修正</h2>
+    <form  action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+           <label for="text">ユーザー</label>
+            {{ post.author}}
+        </div>
+        <div class="form-group">
+              <label for="text">サロン</label>
+            {{ post.salon}}
+         </div>
+        <div class="form-group">
+              <label for="text">美容師</label>
+            {{ post.adviser}}
+        </div>
+        <div class="form-group">
+            <div class="selectpict">
+            {{ post.picture}}
+            </div>
+            <div class="selectpict">
+            {{ post.picture2}}
+            </div>
+            <div class="selectpict">
+            {{ post.picture3}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="text">メッセージ</label>
+            {{ post.text}}
+        </div>
+        <div class="form-group">
+              <label for="text">日付</label>
+            {{ post.created_at}}
+        </div>
+        <p>データを削除します。</p>
+         <div class="btn-group">
+            <span class="mgr-10"><input type="submit" value="削除" class="btn btn-pink w-300px form-control"></span>
+            <input type="button" value="戻る" onClick="javascript:history.go(-1);" class="btn btn-pink mr-10 w-300px form-control">
+        </div>
+    </form>
+</main>
+</div>
+{% endblock contents %}

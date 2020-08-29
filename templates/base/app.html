@@ -28,6 +28,7 @@
             <a class="navbar-brand" href="{% url 'posts:menu' %}">MEM-AB</a>
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav flex-row ml-md-auto">
+                <li class="nav-item"><a class="nav-link" href="{% url 'posts:index' %}">写真一覧</a></li>
                 <!-- ここから追加 -->
                 {% if user.id is None %}
                 <!-- ログインしていなかったらこっち -->

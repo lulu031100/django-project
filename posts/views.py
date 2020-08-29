@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.views import View   # 追加
 from django.http import HttpResponse
@@ -35,6 +35,12 @@ class PostDetailView(DetailView):
     template_name = 'posts/post_detail.html'
     model = Post
     fields = ("picture", "picture2", "picture3", "text", "author", "adviser", "salon", "created_at")
+
+class PostDeleteView(DeleteView):
+    template_name = 'posts/post_delete.html'
+    model = Post
+    success_url = reverse_lazy('posts:index')
+
 # 投稿一覧
 class Index(ListView):
     model = Post
