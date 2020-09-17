@@ -7,7 +7,7 @@ from django.http import HttpResponse
 from .forms import PostForm, SalonAddForm, AdviserAddForm
 
 from .models import Post, Like, Comment, Salon, Adviser, Useradviser
-
+import json
 # 投稿画面
 class New(CreateView):
     # 使うためテンプレートの指定
@@ -17,10 +17,29 @@ class New(CreateView):
     # 成功時に飛ぶURLの指定
     success_url = reverse_lazy('posts:index')
 
+    def get_initial(self):
+        return {'author': self.request.user}
     # 入力に問題がない場合現在ログインしているアカウントを投稿者として登録するための処理
     def form_valid(self, form):
         form.instance.author_id = self.request.user.id
         return super(New, self).form_valid(form)
+
+def ajax_get_adviser(request):
+    pk = request.GET.get('pk')
+    # pkパラメータがない、もしくはpk=空文字列だった場合は全カテゴリを返しておく。
+    if not pk:
+         adviser_list = Adviser.objects.all()
+
+    # pkがあれば、そのpkでadviserを絞り込む
+    else:
+         adviser_list = Adviser.objects.filter(salon__pk=pk)
+
+    # [ {'name': 'サッカー', 'pk': '3'}, {...}, {...} ] という感じのリストになる。
+    adviser_list = [{'pk': adviser.pk, 'name': adviser.name} for adviser in adviser_list]
+
+    # JSONで返す。
+    return JsonResponse({'adviserList': adviser_list})
+
 
 class PostUpdateView(UpdateView):
     # 使うためテンプレートの指定

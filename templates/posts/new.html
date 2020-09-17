@@ -74,3 +74,54 @@
 </main>
 </div>
 {% endblock contents %}
+{% block extrajs %}
+    <script>
+        const salonElement = document.getElementById('id_salon');
+        const adviserElement = document.getElementById('id_adviser');
+
+        const changeCategory = (select) => {
+            // 子カテゴリの選択欄を空にする。
+            categoryElement.innerHTML = '';
+
+            const pk = salonElement[salonElement.selectedIndex].value;
+            const url = `{% url 'posts:ajax_get_adviser' %}?pk=${pk}`;
+
+            fetch(url)
+                .then(response => {
+                    return response.json();
+                })
+                .then(response => {
+                    for (const adviser of response.adviserList) {
+                        const option = document.createElement('option');
+                        option.value = adviser.pk;
+                        option.innerHTML = adviser.name;
+                        adviserElement.add(option);
+                    }
+
+                    if (select !== undefined) {
+                        for (let i = 0, len = adviserElement.length; i < len; i++) {
+                            const option = adviserElement[i];
+                            if (option.value === select) {
+                                option.selected = true;
+                            }
+                        }
+                    }
+
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+        };
+
+        salonElement.addEventListener('change', () => {
+            changeAdviser();
+        });
+
+        // 入力値に問題があって再表示された場合、ページ表示時点で小カテゴリが絞り込まれるようにする
+        if (salonElement[salonElement.selectedIndex].value) {
+            const selectedAdviser = adviserElement[adviserElement.selectedIndex].value;
+            changeAdviser(selectedAdviser);
+        }
+    </script>
+
+{% endblock %}

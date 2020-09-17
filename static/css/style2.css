@@ -1,0 +1,36 @@
+
+body{
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+}
+.slide-item{
+  background: #222;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 2rem;
+  &:nth-child(2n){
+    background: #000aaa;
+  }
+  &:nth-child(3n){
+    background: #aaa000;
+  }
+}
+
+
+    .swiper-container {
+      width: 300px;
+      height: 300px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -150px;
+      margin-top: -150px;
+    }
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+    }

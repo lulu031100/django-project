@@ -7,6 +7,7 @@ app_name = 'posts'
 
 urlpatterns = [
     path('new/', login_required(views.New.as_view()), name='new'),
+    path('api/adviser/get/', views.ajax_get_adviser, name='ajax_get_adviser'),  # これ
     path('postupdate/<int:pk>', login_required(views.PostUpdateView.as_view()), name='postupdate'),
     path('postdetail/<int:pk>/', views.PostDetailView.as_view(), name='postdetail'),
     path('postdelete/<int:pk>', views.PostDeleteView.as_view(), name='postdelete'),

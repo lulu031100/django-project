@@ -1,4 +1,4 @@
-{% extends "base/app.html" %}
+{% extends "base/app_detail.html" %}
 {% load custom_filter %}
 {% block contents %}
 <div class="container">
@@ -14,8 +14,16 @@
                         <p class="text-right"><a href="{% url 'posts:postupdate' post.id %}"> 変更画面へ</a></p>
                     </li>
                 </ul>
-                <img src="{{post.picture.url}}" class="card-img img-style w-500px"  />
-                <div class="card-body">
+        <div class="swiper-container">
+        <div class="swiper-wrapper">
+        <div class="swiper-slide slide-item"><img class="img-fluid" src="{{post.picture.url}}" ></div>
+        <div class="swiper-slide slide-item"><img class="img-fluid" src="{{post.picture2.url}}" ></div>
+        <div class="swiper-slide slide-item"><img class="img-fluid" src="{{post.picture3.url}}" ></div>
+        </div>
+        </div>"
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <div class="card-body">
 
                     <div class="card-hedder">
 
