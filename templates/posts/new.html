@@ -6,11 +6,11 @@
     <form id="postsnewform" action="{% url 'posts:new' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="form-group">
-           <label for="text">ユーザー</label>
+           <label for="author">ユーザー</label>
             {{ form.author}}
         </div>
         <div class="form-group">
-              <label for="text">サロン</label>
+              <label for="salon">サロン</label>
             {{ form.salon}}
             {% if form.salon.errors %}
             </div>
@@ -20,7 +20,7 @@
             {% endif %}
         </div>
         <div class="form-group">
-              <label for="text">美容師</label>
+              <label for="adviser">美容師</label>
             {{ form.adviser}}
         </div>
         <div class="form-group">
@@ -51,7 +51,7 @@
         </div>
         <div class="form-group">
             <label for="text">メッセージ</label>
-            <textarea class="form-control" name="text" cols="40" rows="10" id="id_text"></textarea>
+      {{ form.text }}
             {% if form.text.errors %}
             <div class="alert alert-danger">
                 {{ form.text.errors }}
@@ -75,53 +75,45 @@
 </div>
 {% endblock contents %}
 {% block extrajs %}
-    <script>
-        const salonElement = document.getElementById('id_salon');
-        const adviserElement = document.getElementById('id_adviser');
+   <script>
+      const salonElement = $('#id_salon');
+        const adviserElement = $('#id_adviser');
 
-        const changeCategory = (select) => {
+        const changeAdviser = (select) => {
             // 子カテゴリの選択欄を空にする。
-            categoryElement.innerHTML = '';
+            adviserElement.children().remove();
 
-            const pk = salonElement[salonElement.selectedIndex].value;
-            const url = `{% url 'posts:ajax_get_adviser' %}?pk=${pk}`;
+            $.ajax({
+                url: '{% url 'posts:ajax_get_adviser' %}',
+                type: 'GET',
+                data: {
+                    'pk': salonElement.val(),
+                }
+            }).done(response => {
+                // 子カテゴリの選択肢を作成・追加。
+                for (const adviser of response.adviserList) {
+                    const option = $('<option>');
+                    option.val(adviser['pk']);
+                    option.text(adviser['name']);
+                    adviserElement.append(option);
+                }
 
-            fetch(url)
-                .then(response => {
-                    return response.json();
-                })
-                .then(response => {
-                    for (const adviser of response.adviserList) {
-                        const option = document.createElement('option');
-                        option.value = adviser.pk;
-                        option.innerHTML = adviser.name;
-                        adviserElement.add(option);
-                    }
+                // 指定があれば、そのカテゴリを選択する
+                if (select !== undefined) {
+                    adviserElement.val(select);
+                }
 
-                    if (select !== undefined) {
-                        for (let i = 0, len = adviserElement.length; i < len; i++) {
-                            const option = adviserElement[i];
-                            if (option.value === select) {
-                                option.selected = true;
-                            }
-                        }
-                    }
-
-                })
-                .catch(error => {
-                    console.log(error)
-                });
+            });
         };
 
-        salonElement.addEventListener('change', () => {
+        salonElement.on('change', () => {
             changeAdviser();
         });
 
         // 入力値に問題があって再表示された場合、ページ表示時点で小カテゴリが絞り込まれるようにする
-        if (salonElement[salonElement.selectedIndex].value) {
-            const selectedAdviser = adviserElement[adviserElement.selectedIndex].value;
+        if (salonElement.val()) {
+            const selectedAdviser = adviserElement.val();
             changeAdviser(selectedAdviser);
         }
     </script>
-
 {% endblock %}

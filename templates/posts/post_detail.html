@@ -4,7 +4,8 @@
 <div class="container">
     <main>
     <h2>写真詳細</h2>
-        <div class="card" style="width: 700px;">
+        <div class="row" w-100 p-3 style="display: block;">
+              <div class="section" style="display: block">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
                         <a href="{% url 'accounts:userDetail' post.author%}" class="text-dark">
@@ -14,33 +15,28 @@
                         <p class="text-right"><a href="{% url 'posts:postupdate' post.id %}"> 変更画面へ</a></p>
                     </li>
                 </ul>
+     <div class="row  w-100 p-5"   style="display: block">
         <div class="swiper-container">
         <div class="swiper-wrapper">
         <div class="swiper-slide slide-item"><img class="img-fluid" src="{{post.picture.url}}" ></div>
         <div class="swiper-slide slide-item"><img class="img-fluid" src="{{post.picture2.url}}" ></div>
         <div class="swiper-slide slide-item"><img class="img-fluid" src="{{post.picture3.url}}" ></div>
         </div>
-        </div>"
+        </div>
+
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
-    <div class="card-body">
+    </div>
+    <div class="section" style="display: block>
 
-                    <div class="card-hedder">
-
-                        <span class="pull- post.text }}</div>
-                    </div>
+                    <span class="pull-text">{{ post.text }}</span>
                     <div class="txt-left">
                         <small>
                             投稿時間{{ post.created_at|date:'Y-m-d H:i' }}
                         </small>
                      </div>
                      <p class="text-right"><a href="{% url 'posts:postdelete' post.id %}"> 削除画面へ</a></p>
-
-                </div>
-
-          </div>
-        <div class="form-group">
-        </div>
+    </div>
     </main>
     </div>
 {% endblock contents %}

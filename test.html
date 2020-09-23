@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>MEM-AB</title>
+    
+    <!-- 必要なライブラリインポート -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+     <link rel="stylesheet" type="text/css" href="static/css/style2.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color:pink">
+            <a class="navbar-brand" href="/menu/">MEM-AB</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav flex-row ml-md-auto">
+                <li class="nav-item"><a class="nav-link" href="/">写真一覧</a></li>
+                <!-- ここから追加 -->
+                
+                <!-- ログインしていたらこっち -->
+                <li class="nav-item"><a class="nav-link" href="/new/">投稿</a></li>
+                <li class="nav-item"><a class="nav-link" href="/accounts/atsuko/">プロフィール変更</a></li>
+                <li class="nav-item"><a class="nav-link" href="/accounts/logout/">ログアウト</a></li>
+                
+                 <!-- 追加ここまで -->
+            </ul>
+            </div>
+        </nav>
+    </header>
+        
+<div class="container">
+    <main>
+    <h2>写真詳細</h2>
+        <div class="container">
+          <div class="row w-100 p-3" style="display:block">
+              <div class="section" style="display: block">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <a href="/accounts/atsuko/" class="text-dark">
+                        <img src="media/image/prof-icon02.PNG" class="timeline-icon" style="width:30px">
+                            atsuko
+                        </a>
+                        <p class="text-right"><a href="/postupdate/1"> 変更画面へ</a></p>
+                    </li>
+                </ul>
+            </div>
+        <div class="row  w-100 p-5"   style="display: block">
+
+        <div class="swiper-container">
+        <div class="swiper-wrapper">
+        <div class="swiper-slide slide-item"><img class="img-fluid" src="media/image/posts/%E3%83%98%E3%82%A2102a_TD7viGs.JPG" ></div>
+        <div class="swiper-slide slide-item"><img class="img-fluid" src="media/image/posts/%E3%83%98%E3%82%A2102b_Uds0mSB.JPG" ></div>
+        <div class="swiper-slide slide-item"><img class="img-fluid" src="media/image/default.jpg" ></div>
+    
+        </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    </div></div>
+    <div class="section" style="display: block>
+        <span class="pull-text">メッセージが表示されないのは</span>
+                    <div class="txt-left">
+                        <small>
+                            投稿時間2020-09-18 21:25
+                        </small>
+                     </div>
+                     <p class="text-right"><a href="/postdelete/1"> 削除画面へ</a></p>
+
+  
+    </div>
+    </main>
+    </div>
+    <script src="static/js/swiper.min.js"></script>
+    <script src="static/js/detail.swiper.js"></script>
+</body>
+
+</html>

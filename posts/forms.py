@@ -4,17 +4,18 @@ from .models import Post, Salon, Adviser
 from .widgets import FileInputWithPreview
 
 class PostForm(forms.ModelForm):
-    salon = forms.ModelChoiceField(
-        queryset= Salon.objects,
-        required=False)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['text'].widget.attrs.update({'class': 'form-control', 'rows':6, 'colums':40})
+
     class Meta:
         model = Post
-        fields = ("picture", "picture2", "picture3", "text", "author", "adviser", "salon", "created_at")
+        fields = ("author","salon","adviser", "picture", "picture2", "picture3", "text", "created_at")
         widgets = {
             'picture': FileInputWithPreview,
             'picture2': FileInputWithPreview,
             'picture3': FileInputWithPreview,
-        }
+                  }
 
 class SalonAddForm(forms.ModelForm):
     class Meta:

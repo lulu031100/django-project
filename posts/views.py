@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
@@ -7,9 +8,10 @@ from django.http import HttpResponse
 from .forms import PostForm, SalonAddForm, AdviserAddForm
 
 from .models import Post, Like, Comment, Salon, Adviser, Useradviser
-import json
+
 # 投稿画面
 class New(CreateView):
+    model = Post
     # 使うためテンプレートの指定
     template_name = 'posts/new.html'
     # 使うformクラスの指定
@@ -20,6 +22,10 @@ class New(CreateView):
     def get_initial(self):
         return {'author': self.request.user}
     # 入力に問題がない場合現在ログインしているアカウントを投稿者として登録するための処理
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['salon_list'] = Salon.objects.all()
+        return context
     def form_valid(self, form):
         form.instance.author_id = self.request.user.id
         return super(New, self).form_valid(form)

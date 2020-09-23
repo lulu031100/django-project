@@ -56,11 +56,10 @@
         {% endif %}
   </main>
 </section>
-
-
-<!-- ここにJSスクリプトを書いていく -->
+{% endblock contents %}
+{% block extrajs %}
 <script>
-    $(document)
+     $(document)
         .on('click', '.like', function () {
             var id = $(this).attr("id");
             do_like(id)
@@ -76,7 +75,6 @@
                 $('.like_list_' + post_id).html(data);
             })
     }
-
-
 </script>
-{% endblock contents %}
+{% endblock %}
+
