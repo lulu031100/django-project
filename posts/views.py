@@ -56,6 +56,7 @@ class PostUpdateView(UpdateView):
     # 成功時に飛ぶURLの指定
     success_url = reverse_lazy('posts:index')
 
+
 class PostDetailView(DetailView):
     template_name = 'posts/post_detail.html'
     model = Post
